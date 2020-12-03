@@ -34,7 +34,7 @@ SECRET_KEY = '0*=hs6re*bh1tppbg1&)a_^0+ula@p_^$omivq7@!k2j@jz3!n'
 # SECURITY WARNING: don't run with debug turned on in production!
 ALLOWED_HOSTS = ['*']
 DEBUG = True
-DEFAULT_FROM_EMAIL = 'lucasrenaa1996@gmail.com'
+DEFAULT_FROM_EMAIL = 'lucasrenaa1996@gmail.com' #esse é meu email, coloque o seuemail@gmail.com
 
 
 # Application definition
@@ -90,9 +90,9 @@ WSGI_APPLICATION = 'jayi.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME', 'JOGO_DO_BIXO'),
+        'NAME': os.environ.get('DB_NAME', 'JOGO_DO_BIXO'), 
         'USER': os.environ.get('DB_USER', 'postgres'),
-        'PASSWORD': os.environ.get('DB_PASS','sua_senha'),
+        'PASSWORD': os.environ.get('DB_PASS','sua_senha'), #coloque sua senha aqui
         'HOST':'localhost',
         'PORT': '5432',
     }
