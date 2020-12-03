@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "cabeca.html" %}
+
+</head>
+<body>
+<div class="container">
+<div class="card-header">
+    Jogos
+  </div>
+
+    {% include "pescoco.html" %}
+
+
+
+    <div class="card">
+
+  <div class="card-body">
+   {% for varaivel in teste %}
+
+
+    <blockquote class="blockquote mb-0">
+
+      {{ varaivel }}
+<p></p>
+{% endfor %}
+ {% for evento in eventos %}
+
+
+    <p class="card-text">
+
+
+    {% if evento.conferir == 1 %}
+    <h1> PARABÉNS VOCÊ GANHOU NO PULE: {{ evento.pule }}</h1>
+    {% endif %}
+
+{% if evento.conferir2 == 1 %}
+    <h1> PARABÉNS VOCÊ GANHOU NO PULE: {{ evento.pule }}</h1>
+    {% endif %}
+
+{% if evento.conferir3 == 1 %}
+    <h1> PARABÉNS VOCÊ GANHOU NO PULE: {{ evento.pule }}</h1>
+    {% endif %}
+
+
+{% if evento.conferir4 == 1 %}
+    <h1> PARABÉNS VOCÊ GANHOU NO PULE: {{ evento.pule }}</h1>
+    {% endif %}
+
+
+{% if evento.conferir5 == 1 %}
+    <h1> PARABÉNS VOCÊ GANHOU NO PULE: {{ evento.pule }}</h1>
+    {% endif %}
+
+
+        {% endfor %}
+
+
+    </blockquote>
+  </div>
+</div>
+
+</div>
+
+<span class="d-block p-2 bg-primary text-white">
+
+    <footer class="container-fluid text-center bg-footer margin">
+        <p>Élbixu desenvolvimento   </p>
+    </footer>
+    </span>
+
+
+
+
+
+
+{% include "fim.html" %}
+
+</body>
+</html>

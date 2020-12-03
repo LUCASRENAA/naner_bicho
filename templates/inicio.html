@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "cabeca.html" %}
+      <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<style>
+#contato
+{
+height: 60vh;
+      background: #000000;
+
+}
+
+.btn-xl {
+    padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+    width:50%;    //Specify your width here
+}
+
+.branco
+{
+height: 10vh;
+      background: #ffffff;
+
+}
+#so_20
+{
+      height: 5vh;
+          margin-top: -3%;
+
+
+}
+
+
+.height-150
+{
+      height: 100vh;
+
+ background: #34495e;
+
+
+
+
+}
+#so_30
+{
+      height: 20vh;
+            background: #00008b;
+
+
+
+
+}
+@media (max-width: 2000px) {
+#jogar
+    {
+      position: absolute;
+    margin-top: -7%;
+        margin-left: 1%;
+
+
+
+}
+
+#imagem
+    {
+
+
+
+
+
+      height: 100vh;
+
+}
+#teste
+    {
+           height: 0vh;
+              max-width: 0%;
+   max-height: 0%;
+
+}
+
+#imagem_meio
+    {
+           height: 75vh;
+              max-width: 90%;
+   max-height: 90%;
+     margin-top: 3%;
+}
+#teste1
+    {
+            position: absolute;
+    margin-top: -9000000000%;
+        margin-left: -60000000%;
+
+}
+
+}
+
+@media (max-width: 1200px) {
+   #jogar
+    {
+      position: absolute;
+    margin-top: -90%;
+        margin-left: -6%;
+}
+
+#imagem
+    {
+
+              background: url()90% 10% /
+80% no-repeat fixed content-box content-box #00008b;
+
+
+
+
+}
+
+#imagem_meio
+    {
+           height: 75vh;
+              max-width: 70%;
+   max-height: 70%;
+     margin-top: 3%;
+}
+#teste1
+    {
+
+    margin-top: 0%;
+        margin-left: 0%;
+
+}
+#teste
+    {
+           height: 50vh;
+              max-width: 100%;
+   max-height: 100%;
+
+
+
+
+
+}
+#teste3
+    {
+           height: 0vh;
+              max-width: 0%;
+   max-height: 0%;
+
+}
+
+
+}
+
+
+.fonte_branca {
+      color: #ffffff;
+
+    }
+</style>
+</head>
+<body>
+<div id="so_30">
+<div id="imagem" class="fonte_branca">
+
+    <div align="right">
+    {% for dinheiro in dinheiros %}
+
+<button type="button" class="btn btn-primary">
+  Você tem: <span class="badge badge-light"> {{ dinheiro}} Reais </span>
+  <span class="sr-only">Mensagens não lidas</span>
+</button>
+
+
+
+        {% endfor %}
+
+</div>
+
+<div id="so_20">
+
+    <nav class="navbar navbar-expand-lg navbar-light margin" >
+
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <a class="navbar-brand" href="#">
+            <img src="/static/imagens/LUCASRENAA.png" class="rounded-circle" width="100" height="100" >
+        </a>
+
+
+<div class="btn-group mr-2" role="group" aria-label="First group">
+      <a href="/inicio/resultado/">
+    <button type="button" class="btn btn-primary btn-lg">Resultado</button>
+      </a>
+  </div>
+
+
+
+
+
+  <div class="btn-group" role="group" aria-label="Third group">
+     <a href="jogadas/">
+
+        <button class="btn btn-primary btn-lg">Todos os jogos</button>
+    </a>
+  </div>
+
+
+
+         <div class="btn-group" role="group" aria-label="Quart group">
+     <a href="comojogar">
+        <button class="btn btn-primary btn-lg">Como jogar?</button>
+    </a>
+  </div>
+    </ul>
+
+ <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
+
+<form action="/submit" method="POST"> {% csrf_token %}
+    <input class="form-control mr-sm-2" type="search" placeholder="Exemplo: 8" aria-label="Search" name="rodada">
+    <button class="btn btn-primary btn-lg" type="/submit">Veja seu pule de acordo com a rodada</button>
+  </form>
+
+         </ul>
+    </nav>
+</div>
+</div>
+    </div>
+<div class="height-150">
+    <div class="branco">
+
+    </div>
+
+
+<div class="container-fluid quem-somos text-center margin">
+
+<img src="/static/imagens/sorte.png"  id="imagem_meio">
+    <p></p>
+    <a href="jogar">
+<button class="btn-xl">Jogar</button>
+    </a>
+</div>
+
+
+
+
+
+
+
+</div>
+<p></p>
+   <div class="branco">
+
+    </div>
+
+<div id="contato">
+<div class="container-fluid quem-somos text-center margin">
+
+  <img src="/static/imagens/LUCASRENAA.png" class="rounded-circle" width="100" height="100">
+            <p class="fonte_branca" id="descer_contato">
+            Gostou? Fale comigo :>
+
+            </p>
+            <p class="fonte_branca">Email: lucasrenaa1996@gmail.com</p>
+            <p class="fonte_branca">Telefone: (81) 989504384</p>
+
+<a href="avaliacao">
+<button class="btn-xl">Avaliação do site</button>
+    </a>
+
+
+            <p class="fonte_branca" id="fim">Todos os direitos reservados</p>
+        </div>
+    </div>
+</body>
+</html>

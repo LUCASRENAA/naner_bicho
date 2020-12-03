@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<head>
+    <script>
+
+    function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+
+function showPosition(position)
+  {
+
+  var map = L.map(document.getElementById('mapDIV'), {
+      center: [position.coords.latitude, position.coords.longitude],
+      zoom: 15
+      });
+      var basemap = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          });
+          basemap.addTo(map);
+      var earthquakeMarker = L.marker([position.coords.latitude, position.coords.longitude]);
+      earthquakeMarker.addTo(map).bindPopup("Sua localização")
+;
+
+
+
+
+
+
+
+  }
+  }
+
+
+getLocation();
+</script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+  crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+  crossorigin=""></script>
+  <style>
+      #mapDIV{
+          height: 700px;
+          width: 700px;
+          border: solid 1px black;
+      }
+</style>
+      <script src='https://npmcdn.com/@turf/turf/turf.min.js'>
+
+           fromBox = document.getElementById('fromBox');
+  toBox = document.getElementById('toBox');
+  var featuremap = {};
+  for (var i = 0; i < trail_stops['features'].length ; i++){
+      feature = trail_stops['features'][i];
+      //console.log(feature['properties']['name']);
+      featuremap[feature['properties']['name']] = feature['properties'];
+      var fromopt = document.createElement('option');
+      fromopt.value = feature['properties']['name'];
+      fromopt.innerHTML = feature['properties']['name'];
+      fromBox.appendChild(fromopt);
+      var toopt = document.createElement('option');
+      toopt.value = feature['properties']['name'];
+      toopt.innerHTML = feature['properties']['name'];
+      toBox.appendChild(toopt);
+  }
+
+  document.getElementById('calculate').onclick = calculateDistance;
+
+  function calculateDistance(){
+      from = fromBox.value;
+      to = toBox.value;
+      fromobj = featuremap[from];
+      toobj = featuremap[to];
+      var fromPt = turf.point([fromobj['prim_lon_1'], fromobj['prim_lat_d']]);
+      var toPt = turf.point([toobj['prim_lon_1'], toobj['prim_lat_d']]);
+      var distance = turf.distance(fromPt, toPt, {units: 'kilometers'});
+      console.log(distance)
+      var distanceMiles = distance * 0.6214
+
+      document.getElementById('distanceResult').innerHTML = 'Distance is: ' + distance.toFixed(2) +
+          ' kilometers (' + distanceMiles.toFixed(2) + ' miles)';
+  }
+
+      </script>
+
+</head>
+<body>
+    <div id='mapDIV'>i</div>
+
+Calculate distance from:
+    <select id='fromBox'>
+    </select>
+to:
+    <select id='toBox'>
+    </select>
+    <input type="button" id="calculate" value="Calculate">
+    <div id="distanceResult"></div>
+</body>
+</html>

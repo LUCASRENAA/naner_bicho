@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "cabeca.html" %}
+
+</head>
+<body>
+    <img src="data:image/png;base64,{{ data }}" alt="" height="250" width="250">
+<P></P>
+ {% for dinheiros in dinheiro %}
+
+    {{ dinheiros }}
+    <p></p>
+{% endfor %}
+{% for dinheiros2 in dinheiro2 %}
+
+    {{ dinheiros2 }}
+    <p></p>
+{% endfor %}
+
+
+<span class="d-block p-2 bg-primary text-white">
+
+    <footer class="container-fluid text-center bg-footer margin">
+        <p>Élbixu desenvolvimento   </p>
+    </footer>
+    </span>
+</body>
+</html>

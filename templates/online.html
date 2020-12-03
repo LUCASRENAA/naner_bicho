@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "cabeca.html" %}
+
+</head>
+<body>
+aaaaaaaaaaaaaaaaaaaaaaaa
+{% for dado in dados %}
+{{ dado.usuario }}  está online em {{ dado.data }}
+
+{% endfor %}
+
+
+{% for online in onlines %}
+
+<p></p>
+
+{{ online }} está <span class="badge badge-success">Online</span>
+
+{% endfor %}
+</body>
+</html>

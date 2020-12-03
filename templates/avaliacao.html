@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       {% include "cabeca.html" %}
+        <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+<div class="container">
+  <form action="submit" method="POST"> {% csrf_token %}
+  <div class="feedback">
+    <div class="rating">
+      <input type="radio" name="rating" id="rating-5" value="5">
+      <label for="rating-5"></label>
+      <input type="radio" name="rating" id="rating-4" value="4">
+      <label for="rating-4"></label>
+      <input type="radio" name="rating" id="rating-3" value="3">
+      <label for="rating-3"></label>
+      <input type="radio" name="rating" id="rating-2" value="2">
+      <label for="rating-2"></label>
+      <input type="radio" name="rating" id="rating-1" value="1">
+      <label for="rating-1"></label>
+
+      </div>
+
+    </div>
+
+<label>Feedback</label>
+<input type="text" id="descricao" name="descricao">
+
+          <button>Confirmar</button>
+
+  </div>
+
+
+</div>
+</form>
+
+</body>
+</html>

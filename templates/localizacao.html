@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Clique no botão para receber sua localização em Latitude e Longitude:</p>
+<p id="Latitude"></p>
+<p id="Longitude"></p>
+
+
+<script>
+
+
+var x=document.getElementById("demo");
+var y=document.getElementById("Latitude");
+var segundos = 1;
+var z=document.getElementById("Longitude");
+
+
+
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    }
+  else{x.innerHTML="O seu navegador não suporta Geolocalização.";}
+  }
+function showPosition(position)
+  {
+  x.innerHTML="Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+
+  y.innerHTML = position.coords.latitude;
+   z.innerHTML = position.coords.longitude;
+   document.querySelector("[name='txtstart']").value = position.coords.latitude;
+      document.querySelector("[name='txtstart2']").value = position.coords.longitude;
+      segundos = segundos + 1;
+
+var botoes = document.getElementsByTagName("button");
+for (var i = 0; i < botoes.length; i++) {
+    if (botoes[i].className === "teste") {
+        botoes[i].click();
+    }
+}
+
+  }
+
+function teste123(position)
+{
+
+ }
+setInterval(getLocation, 180000);
+
+
+
+
+
+
+</script>
+<form action="submit" method="POST"> {% csrf_token %}
+    <input type="text" required name="txtstart" style="width:150px" value="" name="latitude">
+<input type="text" required name="txtstart2" style="width:150px" value="" name="longitude" >
+<a href="/">
+        <button type ="submit" class="teste">Cancelar</button>
+    </a>
+
+
+
+
+
+    <button onclick="getLocation()">Clique Aqui</button>
+
+</form>
+
+
+</body>
+</html>
+
+

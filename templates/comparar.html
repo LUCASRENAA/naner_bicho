@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include "cabeca.html" %}
+        <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        #menu {
+  position: absolute;
+  right: 0;
+  top: 12%;
+  width: 8em;
+  margin-top: -2.5em;
+}
+    </style>
+</head>
+<body>
+
+<div id="menu">
+     <div class="card">
+  <div class="card-header">
+     <p>Milhares </p>
+  </div>
+
+
+{% for evento in eventos %}
+
+
+
+ <p> Milhar: {{ evento.milhar }} </p>
+            <p> Aposta: {{ evento.valor }} </p>
+
+
+
+{% endfor %}
+         Pule: {{ pule }}
+     </div>
+</div>
+</div>
+{% for teste in rodada %}
+<div class="container">
+
+
+    <div class="card">
+  <div class="card-header">
+    Rodada: {{ teste.rodada }}
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+
+      <p>1: {{ teste.primeira_milhar }} </p>
+            <p> 2: {{ teste.segunda_milhar }} </p>
+            <p> 3: {{ teste.terceira_milhar }} </p>
+            <p> 4: {{ teste.quarta_milhar }} </p>
+            <p> 5: {{ teste.quinta_milhar  }} </p>
+
+        </p>
+      <footer class="blockquote-footer">Data: {{ teste.data  }}</footer>
+    </blockquote>
+  </div>
+</div>
+
+
+{% endfor %}
+
+</div>
+{% include "fim.html" %}
+
+
+</body>
+</html>
